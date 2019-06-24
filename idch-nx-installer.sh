@@ -7,6 +7,8 @@ echo "Nixstats plugins folder Results : $nxplugindir"
 echo "Clear Old plugins file"
 rm -rf $nxplugindir/idch-exim.py
 echo "Success.."
+echo "Add nixstatsagent to sudoers"
+echo -e "\nnixstats ALL=(ALL) NOPASSWD: /usr/sbin/exim" >> /etc/sudoers
 echo "Downloading Nixstats Custom Plugins from git repository"
 wget https://raw.githubusercontent.com/WillyRL/Nixstats/master/idch-exim.py -O $nxplugindir/idch-exim.py
 echo "Append Config to /etc/nixstats.ini in .. 3  "
