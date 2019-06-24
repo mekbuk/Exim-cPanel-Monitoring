@@ -16,7 +16,7 @@ if grep -R "idch-exim" /etc/nixstats.ini
 then
 	echo "idch-exim Exists in nixstats config.. skipping enable idch-exim"
 else
-	echo -e "[idch-exim]\nenabled = yes" >> /etc/nixstats.ini
+	echo -e "\n[idch-exim]\nenabled = yes" >> /etc/nixstats.ini
 fi
 echo "Done.. New /etc/nixstats.ini showing ..."
 cat /etc/nixstats.ini
