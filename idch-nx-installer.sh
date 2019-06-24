@@ -20,7 +20,7 @@ else
 fi
 echo "Done.. New /etc/nixstats.ini showing ..."
 cat /etc/nixstats.ini
-echo -R "\n \n \n \n "
+echo -e "\n \n \n \n "
 echo "Testing Plugin.. Output showing ..."
 nixstatsagent test idch-exim
 echo "All Setup Done .. Restarting nixstats agent ..."
