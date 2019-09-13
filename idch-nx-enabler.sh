@@ -32,17 +32,22 @@ if [ "$nxservices" == "systemd" ]; then
         sed -i 's/User=nixstats/User=root/g' $systemd
         echo "Success, Result : "
         cat "$systemd"
+        echo "Restart Service Systemd & Nixstats"
+        systemctl daemon-reload
+        systemctl restart nixstatsagent
 
 elif [ "$nxservices" == "initd" ]; then
         echo "Editing Nixstats Iniitd Services File"
         sed -i 's/proguser=nixstats/proguser=root/g' $initd
         echo "Success, Result :"
         cat "$initd"
+        service nixstatsagent restart
 else
     	echo "Error !!"
 fi
 
 echo "SELESAI !!"
+echo "Mohon divalidasi dengan melihat pada htop apakah nixstatsagent sudah berjalan dengan user root atau belum"
 echo "Lanjutkan proses dengan set label server nixstats dengan tambahan label Service-Monitor"
 echo "============================ Thank You =================================="
 
