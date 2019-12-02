@@ -6,12 +6,11 @@
 
 
 ##CPU
+printf "\n \n \n"
 echo "+------------------------------------CPU INFORMATION--------------------------------"
 echo "+----------------------------------------------------------------------------------+"
 echo "|Average:         CPU     %user     %nice   %system   %iowait    %steal     %idle  |"
 echo "+----------------------------------------------------------------------------------+"
-
-
 
 userArr=()
 niceArr=()
@@ -39,6 +38,7 @@ idleArr+=(`sar -f $file  | grep -i Average | sed "s/Average://" | awk -F ' ' '{p
 done
 
 ##Memory
+printf "\n \n \n"
 echo "+----------------------------------MEMORY INFORMATION------------------------------------------------------------+"
 echo "+----------------------------------------------------------------------------------------------------------------+"
 echo "|Average:     kbmemfree kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty|"
@@ -77,8 +77,10 @@ dirtyArr+=(`sar -r -f $file  | grep -i Average | sed "s/Average://" | awk -F ' '
 
 done
 
+
 #Operasi perhitungan
 echo "+----------------------------------------------------------------------------------+"
+printf "\n \n \n"
 
 konversiGB="1048576"
 #CPU Section
@@ -108,7 +110,8 @@ avgfreem=`echo "scale=2; $totalfreem/$count" | bc`
 
 avgfreem=`echo "scale=2; $avgfreem/$konversiGB" | bc`
 
-
+#Output printing
+printf "\n \n \n"
 
 echo "Total Sample Data = " $count " Hari"
 echo "CPU Results : "
@@ -118,6 +121,12 @@ echo "Average Monthly %System : " $avgSystem
 echo "Average Monthly %IOWait : " $avgIowait
 echo "Average Monthly %Steal : " $avgSteal
 echo "Average Monthly %Idle : " $avgIdle 
+printf "\n \n \n"
 
 echo "Memory Results :"
-echo "Free Memory Average   : " $avgfreem "GB"
+echo "Free Memory Average   : " $avgfreem "GB / Day" 
+
+printf "\n \n \n"
+printf "Informasi disk : \n"
+df -h
+printf "\n \n \n"
