@@ -4,6 +4,9 @@
 # RnD - Willy Robertus Leonardo
 
 
+#Declare Misc Variables
+hostname=`uname -a | awk {'print $2'}`
+konversiGB="1048576" #Untuk konversi dari KB ke GB 1024 kuadrat
 
 ##CPU
 printf "\n \n \n"
@@ -18,6 +21,7 @@ systemArr=()
 iowaitArr=()
 stealArr=()
 count=0
+
 
 for file in `ls -tr /var/log/sa/sa* | grep -v sar`
 
@@ -81,8 +85,12 @@ done
 #Operasi perhitungan
 echo "+----------------------------------------------------------------------------------+"
 printf "\n \n \n"
+echo "+----------------------------------Results------------------------------------------------------------+"
 
-konversiGB="1048576"
+echo "Server Hostname : " $hostname
+printf "\n \n"
+
+
 #CPU Section
 sumUser=$( IFS="+"; bc <<< "${userArr[*]}" )
 sumNice=$( IFS="+"; bc <<< "${niceArr[*]}" )
@@ -128,5 +136,5 @@ echo "Free Memory Average   : " $avgfreem "GB / Day"
 
 printf "\n \n \n"
 printf "Informasi disk : \n"
-df -h
+df -h 
 printf "\n \n \n"
