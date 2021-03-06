@@ -1,5 +1,5 @@
 # Exim cPanel
 Exim cPanel monitor by WillyRL
 
-# docs instalation
+# docs installation
 https://github.com/NIXStats/nixstatsagent
