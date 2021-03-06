@@ -10,7 +10,7 @@ echo "Success.."
 echo "Add nixstatsagent to sudoers"
 echo -e "\nnixstats ALL=(ALL) NOPASSWD: /usr/sbin/exim" >> /etc/sudoers
 echo "Downloading Nixstats Custom Plugins from git repository"
-wget https://raw.githubusercontent.com/WillyRL/Nixstats/master/idch-exim.py -O $nxplugindir/idch-exim.py
+wget https://github.com/mekbuk/Exim-cPanel-Monitoring/blob/master/idch-exim.py -O $nxplugindir/idch-exim.py
 echo "Append Config to /etc/nixstats.ini in .. 3  "
 echo "Append Config to /etc/nixstats.ini in .. 2  "
 echo "Append Config to /etc/nixstats.ini in .. 1  "
